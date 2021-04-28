@@ -6,7 +6,10 @@
   <title>Animated Navigation</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="memory-style.css">
   <link rel="stylesheet" href="style.css">
+  <script src="js/jqueryLib.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
   
 </head>
 <body>
@@ -93,13 +96,60 @@
         
     </div>
   </section>
-  <section id="progress"><h1>Twoja aktywność</h1></section>
+  <section id="progress">
+    <h1>Ulubione frazy</h1>
+    <div class="collection">
+      <div class="favs">
+        <div class="pole-side"> ziemniak</div> 
+        <div class="posen-side">pyra</div></div>
+      <div class="favs">
+        <div class="pole-side"> ziemniak</div> 
+        <div class="posen-side">pyra</div></div>
+      <div class="favs">
+        <div class="pole-side"> ziemniak</div> 
+        <div class="posen-side">pyra</div></div>
+      <div class="favs">
+        <div class="pole-side"> ziemniak</div> 
+        <div class="posen-side">pyra</div></div>
+      <div class="favs">
+        <div class="pole-side"> ziemniak</div> 
+        <div class="posen-side">pyra</div></div>
+    </div>
+    
+  </section>
   <!-- <section id="favourite"><h1>Ulubione frazy</h1></section> -->
   <section id="game">
     <h1>Gorąca pyra</h1>
-
+    <div class="align-center">
+      <p class="desc">czyli jak dobrze znasz słówka z gwary poznańskiej?</p>
+  
+      <button class="btn" id="btn-start">
+          Start
+      </button>
+  
+      <div class="cards-container">
+          <div class="flip-container hide" id="card-template">
+              <div class="flipper">
+                  <div class="front">
+                      <label>Ku czci wytwórcom</label>
+                  </div>
+                  <div class="back">
+                      <label></label>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="timer">
+          <label id="minutes"></label>:
+          <label id="seconds"></label>
+          <div class="time">
+              MY BEST TIME: <span id="bestTime"></span>
+          </div>
+      </div>
+    </div>
     <!-- do odgadnięcia -->
-    <div class="center-game">
+    <!-- <div class="center-game">
         
       <div class="card card_game">
           
@@ -107,21 +157,23 @@
               <div class="description">abc</div>
           </div>
       </div>
-      <!-- fraza do pisania -->
+      fraza do pisania
       <input class="posen" type="text" placeholder="Gwara poznańska">
 
-      <!-- timer -->
+      timer
       <div id="stoper">
       </div>
       <button id="start">Kliknij</button>
       <button id="reset">Reset</button>
-    </div>
 
   </section>
   <!-- Script -->
   <script src="/js/script.js"></script>
-  <script src="/js/stoper.js"></script>
+  <!-- <script src="/js/stoper.js"></script> -->
   <script src="/js/translator.js"></script>
+  <script src="/js/memory.js"></script>
+
+  
   
 </body>
 </html>
