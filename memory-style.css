@@ -138,17 +138,18 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     color: #FF5E5B;
-    box-shadow: 0 3px 0 #FF5E5B;
+    /* box-shadow: 0 3px 0 #FF5E5B; */
     cursor: pointer;
     transition: all 100ms linear;
   }
+  
   .btn:hover {
     -moz-transform: translateY(-4px);
     -o-transform: translateY(-4px);
     -ms-transform: translateY(-4px);
     -webkit-transform: translateY(-4px);
     transform: translateY(-4px);
-    box-shadow: 0 7px 0 #FF5E5B;
+    /* box-shadow: 0 7px 0 #FF5E5B; */
   }
   .btn:focus {
     outline: 0;

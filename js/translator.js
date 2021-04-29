@@ -146,6 +146,7 @@ search.addEventListener('click', (e)=>{
 
 window.onload = ()=>{
    const startFlashCard = new FlashCard();
+   
    startFlashCard.setValue();
 }
 
@@ -155,7 +156,13 @@ class Favourites{
         this.favList = []
 
     }
+    addPhrase(toAdd){
+        this.favList.push(toAdd);
+    }
 }
+
+const newFavArr = new Favourites();
+
 
 let fav = document.querySelector('.material-icons-outlined');
 fav.addEventListener('click', function(){
@@ -176,3 +183,18 @@ y.addEventListener('click', function(){
     back.innerHTML = ["favourite"];
     // let sib = fav.nextElementSibling;
 });
+
+const favPhrase = document.querySelector('#icon-back').addEventListener('click', (e)=>{
+    e.preventDefault();
+    let favFront = document.querySelector('.description-front').textContent;
+    let favBack = document.querySelector('.description-back').textContent;
+    console.log(favFront);
+
+    console.log(favBack);
+    let x = document.querySelector('#icon-front').classList.replace('material-icons-outlined','material-icons');
+    // x.textContent =  'favourite';
+    console.log(x.textContent);
+
+    newFavArr.addPhrase(new WordPack(favBack, favFront));
+    console.log(newFavArr);
+})
