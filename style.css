@@ -22,6 +22,8 @@ body {
   margin: 0;
   background: #000;
   font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 input:focus{
@@ -273,7 +275,7 @@ section#favourite {
 
 section#game {
   background-color: var(--navColor5);
-  height: 250vh;
+  height: 220vh;
 }
 
 /* Media Query: Large Smartphone (Vertical) */
