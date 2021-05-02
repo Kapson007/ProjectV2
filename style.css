@@ -273,6 +273,7 @@ section#favourite {
 
 section#game {
   background-color: var(--navColor5);
+  height: 250vh;
 }
 
 /* Media Query: Large Smartphone (Vertical) */
