@@ -9,21 +9,20 @@
 }
 
 html, body {
-    background-color: #FFFFEA;
-    background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");
-    font-family: "Abel", sans-serif;
+  
     color: #0091C9;
     margin: 0;
     width: 100%;
     height: 100%;
     padding: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
   }
 
 
   .wrapper{
     position: absolute;
+    
     top: 0;
     left: 0;
     /* transform: translateX(-5%); */
@@ -35,7 +34,7 @@ html, body {
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: 100px;
   }
   
@@ -189,7 +188,7 @@ html, body {
     height: 8vh;
     top: 12%;
     left: 45%;
-    z-index: 200;
+    z-index: 2;
     background-color: var(--navColor2);
     padding: 1rem;
     border: 2px solid var(--navColor1);
@@ -298,4 +297,9 @@ html, body {
   }
   .wobble {
     animation: wobble 600ms ease-in-out;
+  }
+
+  @media (max-width: 568px) {
+
+    
   }
