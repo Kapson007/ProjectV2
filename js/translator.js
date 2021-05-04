@@ -1,9 +1,6 @@
 'use strict';
 
 class WordPack{
-    // polish = '';
-    // posen = '';
-    // containerOfWords = []
     constructor(pos, pol){
         
         this.posen = pos;
@@ -21,47 +18,10 @@ class Dictionary{
             let toAdd = x.split('-');
             this.dictionaryContent.push(new WordPack(toAdd[0], toAdd[1]));
         });
-        // console.log(this.dictionaryContent);
-
-        // fetch('./js/input.json')
-        // .then(response => {
-        //     if(response.status !== 200){
-        //         throw Error('This is not an answer!');
-        //     }else{
-        //         return response.json();
-        //     }
-        // })
-        // .then(data => {
-        //     console.log(data);
-        //     data.forEach(x =>{
-        //         this.containerOfWords.push(new WordPack(x.posen, x.polish));
-
-        //         // console.log(`${x.polish} - ${x.posen}`);
-        //     });
-        //     // this.showWords(json.results);
-        //     // console.log(data.pole);
-        //     // containerOfWords.forEach(word => {
-        //     //     console.log(word);
-        //     // });
-        //     // console.log(json);
-        // })
-        // .catch(err => console.log(err))
-        // document.getElementById('')
-        // console.log(containerOfWords);
-        // containerOfWords.forEach(e =>{
-        //     console.log(`${e.polish} - ${e.posen}`);
-        // });
+        
     }
     toPosen(toSearch){
-        // this.containerOfWords.forEach(x =>{
-        //     // console.log(`${x.polish} - ${x.posen}`);
-        //     if(toSearch === x.polish){
-        //         console.log(`${x.posen}`);
-        //         return 0;
-        //     }else{
-        //         console.log('Nie znaleziono');
-        //     }
-        // })
+        
         try{
             for(let i = 0; i<this.dictionaryContent.length; ++i){
                 if(this.dictionaryContent[i].polish === toSearch.trim().toLowerCase()){
@@ -91,15 +51,10 @@ class Dictionary{
     getRandomWord(){
         let i = Math.floor(Math.random()*(874-0+1))+1;
         return this.dictionaryContent[i];
-        // for(let i = 0; i<this.Base.length; ++i){
-        //     // console.log(this.containerOfWords[i].polish);
-        //     console.log(this.Base[i]);
-        //     // console.log('ajsnf,sa');
-        // }
     }
 
 };
-const x = new Dictionary();
+const newDict = new Dictionary();
 
 
 class FlashCard{
@@ -113,7 +68,7 @@ class FlashCard{
 
     }
     setValue(){
-        let randomWord = x.getRandomWord()
+        let randomWord = newDict.getRandomWord()
         this.front.textContent = randomWord.polish;
         this.back.textContent = randomWord.posen;
         this.front.style.fontSize="2rem";
@@ -121,7 +76,6 @@ class FlashCard{
     }
 };
 
-console.log(x.getRandomWord());
 
 
 
@@ -135,18 +89,20 @@ search.addEventListener('click', (e)=>{
     console.log(poland.value);
     console.log(poz.value);
     if(poz.value !== ""){
-        let result = x.toPolish(poz.value);
+        let result = newDict.toPolish(poz.value);
         poland.value = result;
     }
     if(poland.value !== ""){
-        let result = x.toPosen(poland.value)
+        let result = newDict.toPosen(poland.value)
         poz.value = result;
     }
 });
 
+const startFlashCard = new FlashCard();
+
 window.onload = ()=>{
-   const startFlashCard = new FlashCard();
    
+    
    startFlashCard.setValue();
 }
 
@@ -159,42 +115,59 @@ class Favourites{
     addPhrase(toAdd){
         this.favList.push(toAdd);
     }
+
+    ifIncludes(toAdd){
+        if(this.favList.includes(toAdd)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 const newFavArr = new Favourites();
 
 
-let fav = document.querySelector('.material-icons-outlined');
-fav.addEventListener('click', function(){
-    // fav.textContent = "";
-    console.log('clicked');
-    fav.textContent = "favourite"
-    // let sib = fav.nextElementSibling;
-});
-
-let y = document.querySelector('.btn');
-y.addEventListener('click', function(){
-    // fav.textContent = "";
-    console.log('clicked');
-    let fav = document.querySelector('.icon-front');
-    fav.innerHTML = ['favourite']
-    
-    let back = document.querySelector('icon-back');
-    back.innerHTML = ["favourite"];
-    // let sib = fav.nextElementSibling;
-});
-
-const favPhrase = document.querySelector('#icon-back').addEventListener('click', (e)=>{
+const card = document.querySelector('#addToFav').addEventListener('click', (e)=>{
     e.preventDefault();
+    let heartBack = document.querySelector('#icon-back');
+    heartBack.textContent = 'favorite';
+    let heartFront = document.querySelector('#icon-front');
+    heartFront.textContent = 'favorite';
     let favFront = document.querySelector('.description-front').textContent;
     let favBack = document.querySelector('.description-back').textContent;
-    console.log(favFront);
+    let favBox = document.createElement('div');
+    favBox.classList.add('favs');
+    favBox.innerHTML = `<div class="pole-side"> <div class="pole-desc">${favFront}</div></div> 
+    <div class="posen-side"><div class="posen-desc">${favBack}</div></div>
+    </div>`;
+    
+    if(!newFavArr.ifIncludes(new WordPack(favBack, favFront))){
+        newFavArr.addPhrase(new WordPack(favBack, favFront));
+        document.querySelector('.collection').appendChild(favBox);
+    }else{
+        alert('Fraza istnieje');
+        console.log('fraza istnieje');
+    }
+    
+});
 
-    console.log(favBack);
-    let x = document.querySelector('#icon-front').classList.replace('material-icons-outlined','material-icons');
-    // x.textContent =  'favourite';
-    console.log(x.textContent);
+const prev = document.querySelector('#previous');
+prev.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let heartBack = document.querySelector('#icon-back');
+    heartBack.textContent = 'favorite_border';
+    let heartFront = document.querySelector('#icon-front');
+    heartFront.textContent = 'favorite_border';
+    startFlashCard.setValue();
+});
 
-    newFavArr.addPhrase(new WordPack(favBack, favFront));
-    console.log(newFavArr);
-})
+const next = document.querySelector('#next');
+next.addEventListener('click', (e)=>{
+    e.preventDefault();
+    let heartBack = document.querySelector('#icon-back');
+    heartBack.textContent = 'favorite_border';
+    let heartFront = document.querySelector('#icon-front');
+    heartFront.textContent = 'favorite_border';
+    startFlashCard.setValue();
+});

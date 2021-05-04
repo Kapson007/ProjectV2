@@ -642,11 +642,13 @@ h1{
   border: 2px solid var(--navColor2);
   border-radius: 3px;
   display: flex;
+  background-color: #e7c817;
   flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   margin: 20px 20px 20px 20px;
+  
   padding: 0;
   
   
@@ -658,15 +660,18 @@ h1{
 .pole-side,  .posen-side{
   width: 100%;
   height: 50%;
-  top: 20%;
-  
-  /* border-radius: 16px; */
-  /* border-radius:3px; */
+  font-size: 3rem;
+  overflow: scroll;
+}
+
+.posen-side{
+  position: relative;
+  height: 35%;
   
 }
 
 .pole-side{
-  background-color: var(--navColor4);
+  background-color: #F9D515;
 }
 
 .posen-side{
@@ -684,7 +689,8 @@ h1{
   align-content: center;
   text-align: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 2rem;
+  text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
   font-weight: 800;
 }
 
@@ -969,6 +975,7 @@ h1{
     top: 5%;
     padding: .6rem;
   }
+  
   .pole-side{
     background-color: var(--navColor2);
   }
