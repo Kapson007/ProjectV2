@@ -322,13 +322,20 @@ section#home a {
   z-index: 2;
   top: 1.5rem;
   left: 1.5rem;
-  
+  width: 20vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  padding-top: 15px;
   padding-bottom: 5px;
   color: var(--primaryColor);
   border-bottom: 1px solid var(--primaryColor);
   overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.534);
 }
 
 section#flashcards {
