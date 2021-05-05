@@ -71,8 +71,8 @@ class FlashCard{
         let randomWord = newDict.getRandomWord()
         this.front.textContent = randomWord.polish;
         this.back.textContent = randomWord.posen;
-        this.front.style.fontSize="2rem";
-        this.back.style.fontSize="2rem";
+        // this.front.style.fontSize="2rem";
+        // this.back.style.fontSize="2rem";
     }
 };
 
@@ -86,8 +86,8 @@ search.addEventListener('click', (e)=>{
     e.preventDefault();
     const poland = document.querySelector('.pole');
     const poz = document.querySelector('.posen');
-    console.log(poland.value);
-    console.log(poz.value);
+    // console.log(poland.value);
+    // console.log(poz.value);
     if(poz.value !== ""){
         let result = newDict.toPolish(poz.value);
         poland.value = result;
@@ -171,3 +171,11 @@ next.addEventListener('click', (e)=>{
     heartFront.textContent = 'favorite_border';
     startFlashCard.setValue();
 });
+
+
+function clearInput(){
+    document.querySelector('#pole').value = '';
+    document.querySelector('#posen').value = '';
+    console.log(document.querySelector('#pole').value);
+    console.log('clicked');
+}
