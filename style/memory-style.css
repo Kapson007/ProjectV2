@@ -1,0 +1,326 @@
+:root {
+  --primaryColor: #fff;
+  
+  --navColor1: #034159;
+  --navColor2: #0091C9;
+  --navColor3: #6ED7FF;
+  --navColor4: #F9D515;
+  --navColor5: #e0d288;
+}
+
+html, body {
+  
+    color: #0091C9;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    /* overflow-x: hidden;
+    overflow-y: hidden; */
+  }
+
+
+  .wrapper{
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    /* transform: translateX(-5%); */
+    padding: 2rem;
+    width: 80vw;
+    height: 200vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    /* overflow: hidden; */
+    margin: 100px;
+  }
+  
+  h2.desc {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 2%;
+    color: var(--primaryColor);
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+    letter-spacing: 0.5px;
+    margin: auto;
+    /* margin-top: 0; */
+    /* margin-bottom: 60px; */
+  }
+  
+  /* Cards */
+  .cards-container {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 150vh;
+  }
+  
+  .flip-container {
+    /* position: relative; */
+    display: inline-block;
+    width: 100%;
+    height: 20vh;
+    margin: 15px;
+    perspective: 1000px;
+    cursor: pointer;
+    border: 2px solid var(--navColor1);
+
+  }
+  .flip-container .flipper {
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: 0.5s;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: 0.5s;
+    -o-transform-style: preserve-3d;
+    -o-transition: 0.5s;
+  }
+  .flip-container.active .flipper {
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  
+  .flip-container,
+  .front,
+  .back {
+    border-radius: 5px;
+    color: #FFFFEA;
+    width: 180px;
+    height: 220px;
+  }
+  
+  .front,
+  .back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .front {
+    background-color: var(--navColor2);
+    text-align: center;
+    z-index: 2;
+    -moz-transform: rotateY(0);
+    -o-transform: rotateY(0);
+    -ms-transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    
+    transform: rotateY(0);
+  }
+  .front label {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    top: 40%;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    
+    font-size: 1rem;
+    transform: rotate(45deg);
+  }
+  
+  .back {
+    background-color: var(--navColor3);
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  .back label {
+    position: relative;
+    display: block;
+    top: 40%;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  }
+  
+  /* Timer */
+  .timer {
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    pointer-events: none;
+    left: 10%;
+    top: 12%;
+    border-radius: 8px;
+    border: 2px solid var(--navColor1);
+    background-color: var(--navColor2);
+    color: var(--navColor4);
+    padding: 1rem;
+  }
+  .timer label#minutes,
+  .timer label#seconds {
+    display: inline-block;
+    font-size: 20px;
+  }
+  .timer .time {
+    display: none;
+    font-size: 13px;
+  }
+  
+  /* Buttons */
+  #btn-start {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 12vw;
+    height: 10vh;
+    top: 11.5%;
+    left: 45%;
+    z-index: 2;
+    background-color: var(--navColor2);
+    padding: 0.5rem;
+    text-align: center;
+    border: 2px solid var(--navColor1);
+    border-radius: 8px;
+    font-family: "Abel", sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--navColor4);
+    text-align: center;
+    /* box-shadow: 0 3px 0 #FF5E5B; */
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+  }
+  
+  #btn-start:hover {
+    color: var(--navColor2);
+    background-color: var(--navColor4);
+    transform: scale(1.2);
+    /* box-shadow: 0 7px 0 #FF5E5B; */
+  }
+  #btn-start:focus {
+    outline: 0;
+  }
+  
+  /* Github ribbon */
+  #github {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+  }
+  
+  
+  .hide {
+    display: none !important;
+  }
+  
+  .cursor-default {
+    cursor: default !important;
+  }
+  
+  /* Reponsive Rules */
+  @media screen and (max-width: 1200px) {
+    .flip-container, .front, .back {
+      width: 140px;
+      height: 180px;
+    }
+  
+    .timer {
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #FFFFEA;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .flip-container, .front, .back {
+      width: 100px;
+      height: 140px;
+    }
+  
+    .front label {
+      display: inline-block;
+      font-size: 16px;
+      padding-top: 10px;
+    }
+  
+    .cards-container {
+      margin: 40px 10px;
+    }
+  
+    .timer {
+      top: 10px;
+      left: 10px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .flip-container, .front, .back {
+      width: 80px;
+      height: 120px;
+    }
+  }
+  /* Animations */
+  @keyframes wobble {
+    from {
+      transform: none;
+    }
+    15% {
+      transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -5deg);
+    }
+    30% {
+      transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 3deg);
+    }
+    45% {
+      transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -3deg);
+    }
+    60% {
+      transform: translate3d(5%, 0, 0) rotate3d(0, 0, 1, 2deg);
+    }
+    75% {
+      transform: translate3d(-10%, 0, 0) rotate3d(0, 0, 1, -1deg);
+    }
+    to {
+      transform: none;
+    }
+  }
+  .wobble {
+    animation: wobble 600ms ease-in-out;
+  }
+
+  .wrapper > .desc{
+    text-align: center;
+  }
+
+  @media (max-width: 568px) {
+
+    .front label {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      top: 30%;
+      text-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+      
+      font-size: 1rem;
+      transform: rotate(45deg);
+    }
+
+    .back label {
+      position: relative;
+      top: 30%;
+      
+      font-size: 0.8rem;
+    }
+  }

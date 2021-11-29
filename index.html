@@ -1,0 +1,146 @@
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Słownik gwary poznańskiej</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Leckerli+One|Roboto:400,700|Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./style/memory-style.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="js/jqueryLib.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
+  
+</head>
+<body>
+  <!-- Menu overlay -->
+  <div class="overlay overlay-slide-left" id="overlay">
+    <!-- Menu items -->
+    <nav>
+      <ul>
+        <li id="nav-1" class="slide-out-1">
+          <a href="#translate">Tłumacz</a>
+        </li>
+        <li id="nav-2"  class="slide-out-2"><a href="#flashcards">Fiszki</a></li>
+        <li id="nav-3" class="slide-out-3"><a href="progress">Twój postęp</a></li>
+        <li id="nav-4" class="slide-out-4"><a href="#favourite">Ulubione</a></li>
+        <li id="nav-5" class="slide-out-5"><a href="#game">Gorąca pyra</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!-- Menu Bars -->
+  <div class="menu-bars" id="menu-bars">
+    <div class="bar1"  id="bar1">
+
+    </div>
+    <div class="bar2" id="bar2">
+
+    </div>
+    <div class="bar3" id="bar3">
+      
+    </div>
+    <div class="bar4" id="bar4">
+      
+    </div>
+    <div class="bar4" id="bar4">
+      
+    </div>
+  </div>
+  <!-- Sections -->
+  <section id="home"><a href="Leszno_01_01_001.jpeg" target="_blank">Słownik gwary poznańskiej</a></section>
+  <section id="translate">
+    <h1>Tłumacz</h1>
+    <div class="center-translate">
+      <div class="translator">
+        <input id="pole" class = "pole" type="text" value="" onclick="clearInput();" placeholder="Język urzędowy">
+        <!-- <textarea id="posen" class="posen" placeholder="Gwara poznańska" name="" id="" cols="50" rows="10"></textarea> -->
+        <input id="posen" class="posen" type="text" value="" placeholder="Gwara">
+        <input type="submit" id="submit" value = "Szukaj">
+      </div>
+    </div>
+  </section>
+  <section id="flashcards">
+    <h1>Fiszki</h1>
+    
+      <div class="center">
+        
+        <div class="card">
+          
+            <div class="card__side card__side-front">
+              <a href="#" class="fav">
+                <span id="icon-front" class="material-icons-outlined">
+                  favorite_border
+                  </span>
+              </a>
+              
+                <div id="description-front" class="description-front"></div>
+            </div>
+            <div class="card__side card__side-back">
+              <a href="#" id="addToFav" class="fav"><span id="icon-back" class="material-icons-outlined">
+                favorite_border
+                </span></a>
+              
+                <div id="description-back" class="description-back"></div>
+            </div>
+            
+        </div>
+        
+      <div class="buttons">
+        <button class="btn" id = "previous">Poprzednia</button>
+        <button class="btn" id="next">Następna</button>
+      </div>
+          
+        
+    </div>
+  </section>
+  <section id="favourite">
+    <h1>Ulubione frazy</h1>
+    <div class="collection">
+      
+    </div>
+    
+  </section>
+  <!-- <section id="favourite"><h1>Ulubione frazy</h1></section> -->
+  <section id="game">
+    <h1>Gorąca pyra</h1>
+    <div class="wrapper">
+      <!-- <div class="start-game"> -->
+        <h2 class="desc">czyli jak dobrze znasz słówka z gwary poznańskiej?</h2>
+  
+      <button class="btn" id="btn-start">
+          Start
+      </button>
+      <!-- </div> -->
+      
+  
+      <div class="cards-container">
+          <div class="flip-container hide" id="card-template">
+              <div class="flipper">
+                  <div class="front">
+                      <label>Gorąca pyra</label>
+                  </div>
+                  <div class="back">
+                      <label></label>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="timer">
+          <label id="minutes"></label>:
+          <label id="seconds"></label>
+          <div class="time">
+              MY BEST TIME: <span id="bestTime"></span>
+          </div>
+        </div>
+    </div>
+    
+  <!-- Script -->
+  <script src="./js/script.js" type="text/JavaScript"></script>
+  <!-- <script src="/js/stoper.js"></script> -->
+  <script src="./js/translator.js" type="text/JavaScript"></script>
+  <script src="./js/memory.js" type="text/JavaScript"></script>
+</body>
+</html>
+
